@@ -13,13 +13,13 @@ users
 |birthday          |date   |null: false                            |
 
 ### Association
-has_many :itmes
+has_many :items
 has_many :purchases
 
 
 
 ## Tabel名
-itmes
+items
 
 |Column            |Type      |Options                       |
 |------------------|----------|------------------------------|
@@ -49,7 +49,7 @@ purchases
 
 ### Association
 belongs_to :user
-belongs_to :itme
+belongs_to :item
 has_one :address
 
 
