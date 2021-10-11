@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2021_10_11_061221) do
     t.string "nickname", null: false
     t.string "first_name", null: false
     t.string "name", null: false
-    t.string "first_name_raeding", null: false
-    t.string "name_raeding", null: false
+    t.string "first_name_reading", null: false
+    t.string "name_reading", null: false
     t.date "birthday", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
