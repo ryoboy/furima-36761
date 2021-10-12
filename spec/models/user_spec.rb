@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-
   describe 'ユーザー新規登録' do
     user = FactoryBot.build(:user)
 
@@ -26,31 +25,31 @@ RSpec.describe User, type: :model do
     it 'passwordは半角英数字でないと登録できない' do
       user.password = '111111'
       user.valid?
-      expect(user.errors.full_messages).to include("Password is invalid")
+      expect(user.errors.full_messages).to include('Password is invalid')
     end
 
     it '名字は全角（漢字、カタカナ、ひらがな）でないと保存できない' do
       user.first_name = 'kawasoe'
       user.valid?
-      expect(user.errors.full_messages).to include("First name is invalid. Input full-width characters.")
+      expect(user.errors.full_messages).to include('First name is invalid. Input full-width characters.')
     end
 
     it '名前は全角（漢字、カタカナ、ひらがな）でないと保存できない' do
       user.name = 'ryo'
       user.valid?
-      expect(user.errors.full_messages).to include("Name is invalid. Input full-width characters.")
+      expect(user.errors.full_messages).to include('Name is invalid. Input full-width characters.')
     end
 
     it '名字カナはカタカナでないと保存できない' do
       user.first_name_reading = 'かわそえ'
       user.valid?
-      expect(user.errors.full_messages).to include("First name reading is invalid. Input full-width katakana characters.")
+      expect(user.errors.full_messages).to include('First name reading is invalid. Input full-width katakana characters.')
     end
 
     it '名前カナはカタカナでないと保存できない' do
       user.name_reading = 'りょう'
       user.valid?
-      expect(user.errors.full_messages).to include("Name reading is invalid. Input full-width katakana characters.")
+      expect(user.errors.full_messages).to include('Name reading is invalid. Input full-width katakana characters.')
     end
 
     it '誕生日が空では保存できない' do
@@ -58,6 +57,5 @@ RSpec.describe User, type: :model do
       user.valid?
       expect(user.errors.full_messages).to include("Birthday can't be blank")
     end
-    
   end
 end
