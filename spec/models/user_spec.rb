@@ -10,7 +10,6 @@ RSpec.describe User, type: :model do
     it '全ての項目が入力されていれば保存できる' do
       expect(@user).to be_valid
     end
-
    
     it 'nicknameが空では登録できない' do
       @user.nickname = ''
@@ -43,6 +42,31 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include('Password is invalid')
     end
+
+    it '名字が空だと保存できない' do
+      @user.first_name = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("First name can't be blank")
+    end
+
+    it '名前は空だと保存できない' do
+      @user.name = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Name can't be blank")
+    end
+
+    it '名字カナは空だと保存できない' do
+      @user.first_name_reading = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("First name reading can't be blank")
+    end
+
+    it '名前カナは空だと保存できない' do
+      @user.name_reading = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Name reading can't be blank")
+    end
+
 
     it '名字は全角（漢字、カタカナ、ひらがな）でないと保存できない' do
       @user.first_name = 'kawasoe'
