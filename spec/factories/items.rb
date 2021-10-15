@@ -1,15 +1,17 @@
 FactoryBot.define do
   factory :item do
 
-    product_name              { Faker::Name.initials(number: 2) }
-    description                 { Faker::Internet.free_email }
-    product_type_id              { '1a' + Faker::Internet.password}
-    product_status_id { password }
-    shipping_charge_id              { Faker::Date.backward }
-    shipping_area_id            { person.last.kanji }
-    shipping_day_id                  { person.first.kanji }
-    price                      { person.last.katakana }
-    name_reading               { person.first.katakana }
-    image
+    after(:build) do |item|
+      item.image.attach(io: File.open('public/images/test_image.png'), filename: 'flag.png')
+    end
+    product_name                { Faker::Name.initials(number: 2) }
+    description                 {'説明だよ'}
+    product_type_id             { 2 }
+    product_status_id           { 2 }
+    shipping_charge_id          { 2 }
+    shipping_area_id            { 2 }
+    shipping_day_id             { 2 }
+    price                       { 1000 }
+    association :user
   end
 end
