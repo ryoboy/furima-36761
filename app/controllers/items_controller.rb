@@ -35,8 +35,6 @@ class ItemsController < ApplicationController
     end
   end
 
-
-
   private
 
   def item_params
@@ -49,6 +47,6 @@ class ItemsController < ApplicationController
   end
 
   def contributor_confirmation
-    redirect_to root_path unless @item.user == current_user 
-end
+    redirect_to root_path unless @item.user == current_user
+  end
 end
