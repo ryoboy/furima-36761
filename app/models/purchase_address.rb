@@ -4,7 +4,7 @@ class PurchaseAddress
   with_options  presence: true do
     validates :city
     validates :house_number
-    validates :telephone_number, format: { with: /\d{10,11}/}
+    validates :telephone_number, format: { with: /\A\d{10,11}\z/}
     validates :postal_code, format: { with:/\A\d{3}[-]\d{4}\z/ }
     validates :shipping_area_id, numericality: { other_than: 1 , message: "を選択してください"}
     validates :user_id
