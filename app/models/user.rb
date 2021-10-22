@@ -14,4 +14,6 @@ class User < ApplicationRecord
     validates :name_reading, format: { with: /\A[ァ-ヶー]+\z/, message: 'is invalid. Input full-width katakana characters.' }
     validates :encrypted_password, :password, :password_confirmation, format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]/ }
   end
+  has_many :items
+  has_many :purchases
 end
