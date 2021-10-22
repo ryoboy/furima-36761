@@ -25,6 +25,11 @@ RSpec.describe PurchaseAddress, type: :model do
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("Postal code can't be blank")
       end
+      it 'tokenが空だと保存できない' do
+        @purchase_address.token = ''
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
+      end
       it '郵便番号が半角のハイフンを含んだ形式でないと保存できない' do
         @purchase_address.postal_code = '1234567'
         @purchase_address.valid?
