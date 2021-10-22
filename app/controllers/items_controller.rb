@@ -55,6 +55,6 @@ class ItemsController < ApplicationController
   end
 
   def contributor_confirmation
-    redirect_to root_path unless @item.user == current_user
+    redirect_to root_path if @item.user != current_user || @item.purchase != nil
   end
 end
