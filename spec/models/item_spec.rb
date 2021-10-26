@@ -25,31 +25,31 @@ RSpec.describe Item, type: :model do
     it 'product_type_idが空では保存できない' do
       @item.product_type_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("カテゴリーは1以外の値にしてください")
+      expect(@item.errors.full_messages).to include("カテゴリーはいずれか一つを選択してください。")
     end
 
     it 'product_status_idが空では登録できない' do
       @item.product_status_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("商品の状態は1以外の値にしてください")
+      expect(@item.errors.full_messages).to include("商品の状態はいずれか一つを選択してください。")
     end
 
     it 'shipping_charge_idが空では登録できない' do
       @item.shipping_charge_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("配送料の負担は1以外の値にしてください")
+      expect(@item.errors.full_messages).to include("配送料の負担はいずれか一つを選択してください。")
     end
 
     it 'shipping_area_idが空では登録できない' do
       @item.shipping_area_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("配送元の地域は1以外の値にしてください")
+      expect(@item.errors.full_messages).to include("配送元の地域はいずれか一つを選択してください。")
     end
 
     it 'shipping_day_idが空では登録できない' do
       @item.shipping_day_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("発送までの日数は1以外の値にしてください")
+      expect(@item.errors.full_messages).to include("発送までの日数はいずれか一つを選択してください。")
     end
 
     it 'priceが空だと保存できない' do
